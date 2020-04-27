@@ -26,8 +26,9 @@ public class UserDto {
     @NotBlank(message = "Email is mandatory")
     private String email;
 
-
-    private Integer phone;
+    @Pattern(regexp = "^\\+?[0-9]*$", message = "Phone number contains invalid characters")
+    @Size(min = 9, max = 16)
+    private String phone;
 
     public String getUsername() {
         return username;
@@ -69,11 +70,11 @@ public class UserDto {
         this.email = email;
     }
 
-    public Integer getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(Integer phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 }

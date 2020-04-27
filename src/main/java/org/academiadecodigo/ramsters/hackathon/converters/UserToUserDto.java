@@ -13,7 +13,7 @@ public class UserToUserDto extends AbstractConverter<User, UserDto>{
         userDto.setEmail(user.getEmail());
         userDto.setFirstName(user.getFirstName());
         userDto.setLastName(user.getLastName());
-        userDto.setPhone(user.getPhone());
+        userDto.setPhone(String.valueOf(user.getPhone()));
         userDto.setPass(user.getPass());
 
         return userDto;
