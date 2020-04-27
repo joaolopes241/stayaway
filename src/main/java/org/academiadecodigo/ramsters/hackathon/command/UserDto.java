@@ -1,14 +1,33 @@
 package org.academiadecodigo.ramsters.hackathon.command;
 
+import javax.validation.constraints.*;
+
 public class UserDto {
 
     private String username;
-    private String pass;
-    private String firstName;
-    private String lastName;
-    private String email;
-    private Integer phone;
 
+
+    @NotNull(message = "Pass is mandatory")
+    @NotBlank(message = "Pass is mandatory")
+    @Size(min = 3, max = 64)
+    private String pass;
+
+    @NotNull(message = "First name is mandatory")
+    @NotBlank(message = "First name is mandatory")
+    @Size(min = 3, max = 64)
+    private String firstName;
+
+    @NotNull(message = "First name is mandatory")
+    @NotBlank(message = "First name is mandatory")
+    @Size(min = 3, max = 64)
+    private String lastName;
+
+    @Email
+    @NotBlank(message = "Email is mandatory")
+    private String email;
+
+
+    private Integer phone;
 
     public String getUsername() {
         return username;

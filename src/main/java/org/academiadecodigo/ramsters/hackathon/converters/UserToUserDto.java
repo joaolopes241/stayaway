@@ -2,8 +2,9 @@ package org.academiadecodigo.ramsters.hackathon.converters;
 
 import org.academiadecodigo.ramsters.hackathon.command.UserDto;
 import org.academiadecodigo.ramsters.hackathon.persistence.model.User;
+import org.springframework.stereotype.Component;
 
-
+@Component
 public class UserToUserDto extends AbstractConverter<User, UserDto>{
 
     @Override
