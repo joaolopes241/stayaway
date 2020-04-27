@@ -1,7 +1,6 @@
 package org.academiadecodigo.ramsters.hackathon.persistence.dao;
 
-import org.academiadecodigo.ramsters.hackathon.persistence.model.Customer;
-import org.academiadecodigo.ramsters.hackathon.persistence.model.Model;
+import org.academiadecodigo.ramsters.hackathon.persistence.model.AbstractModel;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -9,7 +8,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.List;
 
-public abstract class GenericJpaDao<T extends Model> implements GenericDao<T> {
+public abstract class GenericJpaDao<T extends AbstractModel> implements GenericDao<T> {
 
     protected Class<T> modelType;
 
@@ -37,17 +36,12 @@ public abstract class GenericJpaDao<T extends Model> implements GenericDao<T> {
     }
 
     @Override
-    public T findById(Integer id) {
-        return em.find(modelType, id);
-    }
-
-    @Override
     public T saveOrUpdate(T modelObject) {
         return em.merge(modelObject);
     }
 
     @Override
-    public void delete(Integer id) {
-        em.remove(em.find(modelType, id));
+    public void delete(T modelObject) {
+        em.remove(em.find(modelType, modelObject));
     }
 }

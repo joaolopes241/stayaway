@@ -3,6 +3,7 @@ package org.academiadecodigo.ramsters.hackathon.persistence.model;
 import org.graalvm.compiler.core.common.type.ArithmeticOpTable;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 
@@ -11,6 +12,8 @@ import javax.persistence.InheritanceType;
 public class Beach extends AbstractModel {
 
     private String name;
+
+    @Id
     private String address;
 
     public String getName() {

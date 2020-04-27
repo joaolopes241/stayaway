@@ -5,9 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "customer")
-public class Customer extends AbstractModel {
+@Table(name = "user")
+public class User extends AbstractModel {
 
+    @Id
     private String username;
     private String pass;
     private String firstName;
@@ -17,7 +18,7 @@ public class Customer extends AbstractModel {
 
     @OneToMany(cascade = {CascadeType.ALL},
             orphanRemoval = true,
-            mappedBy = "customer",
+            mappedBy = "user",
             fetch = FetchType.EAGER)
     private List<Beach> favorites = new ArrayList<>();
 

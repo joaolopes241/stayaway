@@ -2,9 +2,11 @@ package org.academiadecodigo.ramsters.hackathon.services;
 
 import org.academiadecodigo.ramsters.hackathon.persistence.model.User;
 
-public interface RegisterService {
+public interface UserService {
 
-    boolean checkAvailability(String username);
+    User findByUsername(String username);
 
-    User save(User user);
+    User edit(User user);
+
+    void deleteUser(User user);
 }

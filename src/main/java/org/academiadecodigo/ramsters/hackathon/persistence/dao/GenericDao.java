@@ -1,18 +1,16 @@
 package org.academiadecodigo.ramsters.hackathon.persistence.dao;
 
-import org.academiadecodigo.ramsters.hackathon.persistence.model.Model;
+import org.academiadecodigo.ramsters.hackathon.persistence.model.AbstractModel;
 
 import java.util.List;
 
-public interface GenericDao<T extends Model> {
+public interface GenericDao<T extends AbstractModel> {
 
     List<T> findAll();
 
-    T findById(Integer id);
+    T findByUsername(String name);
 
     T saveOrUpdate(T modelObject);
 
-    void delete(Integer id);
-
-    T findByUsername(String name);
+    void delete(T modelObject);
 }
