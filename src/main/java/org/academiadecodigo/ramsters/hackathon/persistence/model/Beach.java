@@ -14,6 +14,9 @@ public class Beach extends AbstractModel {
     @Id
     private String address;
 
+    private String urlImg;
+    private Integer status;
+
     public String getName() {
         return name;
     }
@@ -39,5 +42,29 @@ public class Beach extends AbstractModel {
 
     public void addUser(User user) {
         users.add(user);
+    }
+
+    public String getUrlImg() {
+        return urlImg;
+    }
+
+    public void setUrlImg(String urlImg) {
+        this.urlImg = urlImg;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
 }

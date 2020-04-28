@@ -16,6 +16,8 @@ public class BeachDtoToBeach implements Converter<BeachDto, Beach> {
 
         beach.setAddress(beachDto.getAddress());
         beach.setName(beachDto.getName());
+        beach.setUrlImg(beachDto.getUrlImg());
+        beach.setStatus(beachDto.getStatus());
 
         return beach;
 

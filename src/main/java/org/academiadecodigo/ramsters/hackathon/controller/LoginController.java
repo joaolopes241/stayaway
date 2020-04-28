@@ -16,7 +16,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping("/login")
 public class LoginController {
 
     private AuthService authService;
@@ -26,22 +25,31 @@ public class LoginController {
         this.authService = authService;
     }
 
-    @RequestMapping(method = RequestMethod.POST, path = "")
+    @RequestMapping(method = RequestMethod.GET, path = "/login")
+    public String login() {
+        return "/login";
+    }
+
+    @RequestMapping(method = RequestMethod.POST, path = "/login")
     public String login(@Valid @ModelAttribute UserDto userDto, BindingResult bindingResult, RedirectAttributes redirectAttributes) throws StayAwayException {
+        userDto.setEmail("sfdsdfsd");
+        userDto.setFirstName("adsdsa");
+        userDto.setLastName("asdsdasd");
+        userDto.setPhone("1294812094");
 
         try {
 
-        if (bindingResult.hasErrors()) {
-            return "/login";
-        }
+            if (bindingResult.hasErrors()) {
+                return "/login";
+            }
 
-        if (!authService.authenticate(userDto.getUsername(), userDto.getPass())) {
-            throw new UsernameNotAvailable(Errors.USER_NOT_FOUND);
-        }
+            if (!authService.authenticate(userDto.getUsername(), userDto.getPass())) {
+                throw new UsernameNotAvailable(Errors.USER_NOT_FOUND);
+            }
 
-        return "/login";
+            return "index";
 
-    } catch (UsernameNotAvailable ex) {
+        } catch (UsernameNotAvailable ex) {
 
             redirectAttributes.addFlashAttribute("message", ex.getMessage());
             return "/login";
