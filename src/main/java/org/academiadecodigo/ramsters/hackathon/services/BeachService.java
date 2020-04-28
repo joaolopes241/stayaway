@@ -1,4 +1,9 @@
 package org.academiadecodigo.ramsters.hackathon.services;
 
-public class BeachService {
+import org.academiadecodigo.ramsters.hackathon.persistence.model.Beach;
+
+import java.util.List;
+
+public interface BeachService {
+    List<Beach> list();
 }

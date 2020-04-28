@@ -16,9 +16,9 @@ public class User extends AbstractModel {
     private String email;
     private Integer phone;
 
-    @ManyToMany (cascade = {CascadeType.ALL},
+/*    @ManyToMany (cascade = {CascadeType.ALL},
             fetch = FetchType.EAGER)
-    private List<Beach> favorites = new ArrayList<>();
+    private List<Beach> favorites = new ArrayList<>();*/
 
     public String getUsername() {
         return username;
@@ -68,7 +68,7 @@ public class User extends AbstractModel {
         this.phone = phone;
     }
 
-    public List<Beach> getFavorites() {
+/*    public List<Beach> getFavorites() {
         return favorites;
     }
 
@@ -76,5 +76,5 @@ public class User extends AbstractModel {
         favorites.add(favorite);
         favorite.addUser(this);
         this.favorites = favorites;
-    }
+    }*/
 }

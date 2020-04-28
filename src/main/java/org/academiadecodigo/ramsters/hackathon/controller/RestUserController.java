@@ -44,7 +44,7 @@ public class RestUserController {
     @RequestMapping(method = RequestMethod.GET, path = "/favorites")
     public ResponseEntity<List<BeachDto>> listCustomers() {
 
-        List<BeachDto> beaches = new ArrayList<>();
+/*        List<BeachDto> beaches = new ArrayList<>();
 
         try {
             User user = authService.getAccessingCustomer();
@@ -61,7 +61,8 @@ public class RestUserController {
 
         } catch (StayAwayException ex) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
+        }*/
+return null;
     }
 
 }

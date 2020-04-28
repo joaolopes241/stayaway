@@ -11,4 +11,6 @@ public interface UserService {
     User edit(User user);
 
     void deleteUser(User user);
+
+    List<User> findAllUsers();
 }

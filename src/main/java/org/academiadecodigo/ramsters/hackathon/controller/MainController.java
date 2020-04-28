@@ -10,4 +10,9 @@ public class MainController {
     public String home() {
         return "index";
     }
+
+    @RequestMapping("/beach")
+    public String beach() {
+        return "favorites";
+    }
 }
