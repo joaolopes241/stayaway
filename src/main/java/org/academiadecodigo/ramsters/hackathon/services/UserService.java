@@ -2,6 +2,8 @@ package org.academiadecodigo.ramsters.hackathon.services;
 
 import org.academiadecodigo.ramsters.hackathon.persistence.model.User;
 
+import java.util.List;
+
 public interface UserService {
 
     User findByUsername(String username);
