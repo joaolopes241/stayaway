@@ -1,5 +1,7 @@
-package org.academiadecodigo.ramsters.hackathon.persistence.dao;
+package org.academiadecodigo.ramsters.hackathon.persistence.dao.jpa;
 
+import org.academiadecodigo.ramsters.hackathon.persistence.dao.UserDao;
+import org.academiadecodigo.ramsters.hackathon.persistence.dao.jpa.GenericJpaDao;
 import org.academiadecodigo.ramsters.hackathon.persistence.model.User;
 import org.springframework.stereotype.Repository;
 

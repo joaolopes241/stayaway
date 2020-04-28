@@ -1,5 +1,6 @@
-package org.academiadecodigo.ramsters.hackathon.persistence.dao;
+package org.academiadecodigo.ramsters.hackathon.persistence.dao.jpa;
 
+import org.academiadecodigo.ramsters.hackathon.persistence.dao.GenericDao;
 import org.academiadecodigo.ramsters.hackathon.persistence.model.AbstractModel;
 
 import javax.persistence.EntityManager;

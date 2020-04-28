@@ -1,5 +1,7 @@
-package org.academiadecodigo.ramsters.hackathon.persistence.dao;
+package org.academiadecodigo.ramsters.hackathon.persistence.dao.jpa;
 
+import org.academiadecodigo.ramsters.hackathon.persistence.dao.BeachDao;
+import org.academiadecodigo.ramsters.hackathon.persistence.dao.jpa.GenericJpaDao;
 import org.academiadecodigo.ramsters.hackathon.persistence.model.Beach;
 import org.springframework.stereotype.Repository;
 
