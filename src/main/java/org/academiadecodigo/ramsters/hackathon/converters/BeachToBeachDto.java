@@ -14,7 +14,7 @@ public class BeachToBeachDto extends AbstractConverter<Beach, BeachDto> {
         BeachDto beachDto = new BeachDto();
         beachDto.setAddress(beach.getAddress());
         beachDto.setName(beach.getName());
-        beachDto.setUrlImg(beach.getUrlImg());
+        beachDto.setUrlImg(beach.getImg());
         beachDto.setStatus(beach.getStatus());
 
         return beachDto;

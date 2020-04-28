@@ -10,4 +10,5 @@ public class JpaBeachDao extends GenericJpaDao<Beach> implements BeachDao {
      public JpaBeachDao() {
          super(Beach.class);
      }
+
 }

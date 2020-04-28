@@ -4,8 +4,8 @@ public class BeachDto {
 
     private String name;
     private String address;
-    private String urlImg;
-    private Integer status;
+    private String img;
+    private String status;
 
     public String getName() {
         return name;
@@ -24,18 +24,18 @@ public class BeachDto {
     }
 
     public String getUrlImg() {
-        return urlImg;
+        return img;
     }
 
     public void setUrlImg(String urlImg) {
-        this.urlImg = urlImg;
+        this.img = urlImg;
     }
 
-    public Integer getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(Integer status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 }

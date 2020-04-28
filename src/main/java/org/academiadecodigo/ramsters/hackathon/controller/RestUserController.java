@@ -41,28 +41,5 @@ public class RestUserController {
         this.beachToBeachDto = beachToBeachDto;
     }
 
-    @RequestMapping(method = RequestMethod.GET, path = "/favorites")
-    public ResponseEntity<List<BeachDto>> listCustomers() {
-
-/*        List<BeachDto> beaches = new ArrayList<>();
-
-        try {
-            User user = authService.getAccessingCustomer();
-
-            if (user == null) {
-                throw new StayAwayException("ERROR");
-            }
-
-            for (Beach beach : user.getFavorites()) {
-                beaches.add(beachToBeachDto.convert(beach));
-            }
-
-            return new ResponseEntity<>(beaches, HttpStatus.OK);
-
-        } catch (StayAwayException ex) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }*/
-return null;
-    }
 
 }
