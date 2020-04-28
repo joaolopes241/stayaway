@@ -11,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
@@ -32,16 +33,13 @@ public class LoginController {
     }
 
     @RequestMapping(method = RequestMethod.POST, path = "/login")
-    public String login(HttpServletRequest request, RedirectAttributes redirectAttributes) throws StayAwayException {
+    public String login(@RequestParam("login") String username, @RequestParam("pass") String pass, RedirectAttributes redirectAttributes) throws StayAwayException {
 
-        UserDto userDto = new UserDto();
-        userDto.setUsername(request.getParameter("username"));
-        userDto.setPass(request.getParameter("pass"));
 
         try {
 
 
-            if (!authService.authenticate("ruiferao", "1234")) {
+            if (!authService.authenticate(username, pass)) {
                 throw new UsernameNotAvailable(Errors.USER_NOT_FOUND);
             }
 
