@@ -16,11 +16,11 @@ public class User extends AbstractModel {
     private String email;
     private Integer phone;
 
-    @OneToMany(cascade = {CascadeType.ALL},
+/*    @OneToMany(cascade = {CascadeType.ALL},
             orphanRemoval = true,
             mappedBy = "user",
             fetch = FetchType.EAGER)
-    private List<Beach> favorites = new ArrayList<>();
+    private List<Beach> favorites = new ArrayList<>();*/
 
     public String getUsername() {
         return username;
@@ -70,11 +70,11 @@ public class User extends AbstractModel {
         this.phone = phone;
     }
 
-    public List<Beach> getFavorites() {
+/*    public List<Beach> getFavorites() {
         return favorites;
     }
 
     public void setFavorites(List<Beach> favorites) {
         this.favorites = favorites;
-    }
+    }*/
 }
