@@ -1,13 +1,16 @@
 package org.academiadecodigo.ramsters.hackathon.controller;
 
 import org.academiadecodigo.ramsters.hackathon.exceptions.StayAwayException;
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
+import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.sql.DataSource;
 
 @ControllerAdvice
 public class GlobalControllerExceptionHandler {
