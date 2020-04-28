@@ -1,6 +1,7 @@
 package org.academiadecodigo.ramsters.hackathon.controller;
 
 import org.academiadecodigo.ramsters.hackathon.converters.BeachToBeachDto;
+import org.academiadecodigo.ramsters.hackathon.persistence.model.Beach;
 import org.academiadecodigo.ramsters.hackathon.services.AuthService;
 import org.academiadecodigo.ramsters.hackathon.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 @Controller
 public class UserController {
@@ -30,12 +36,6 @@ public class UserController {
     @Autowired
     public void setBeachToBeachDto(BeachToBeachDto beachToBeachDto) {
         this.beachToBeachDto = beachToBeachDto;
-    }
-
-    @RequestMapping(method = RequestMethod.GET, path = "/favorites")
-    public String showFavorites(Model model) {
-        model.addAttribute("favorites", beachToBeachDto.convert(authService.getAccessingCustomer().getFavorites()));
-        return "favorites/list";
     }
 
     @RequestMapping(method = RequestMethod.GET, path = "/about")

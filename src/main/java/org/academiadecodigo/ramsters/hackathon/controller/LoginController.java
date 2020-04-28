@@ -35,9 +35,7 @@ public class LoginController {
     @RequestMapping(method = RequestMethod.POST, path = "/login")
     public String login(@RequestParam("login") String username, @RequestParam("pass") String pass, RedirectAttributes redirectAttributes) throws StayAwayException {
 
-
         try {
-
 
             if (!authService.authenticate(username, pass)) {
                 throw new UsernameNotAvailable(Errors.USER_NOT_FOUND);
