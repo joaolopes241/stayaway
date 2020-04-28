@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 @Controller
@@ -31,28 +32,25 @@ public class LoginController {
     }
 
     @RequestMapping(method = RequestMethod.POST, path = "/login")
-    public String login(@Valid @ModelAttribute UserDto userDto, BindingResult bindingResult, RedirectAttributes redirectAttributes) throws StayAwayException {
-        userDto.setEmail("sfdsdfsd");
-        userDto.setFirstName("adsdsa");
-        userDto.setLastName("asdsdasd");
-        userDto.setPhone("1294812094");
+    public String login(HttpServletRequest request, RedirectAttributes redirectAttributes) throws StayAwayException {
+
+        UserDto userDto = new UserDto();
+        userDto.setUsername(request.getParameter("username"));
+        userDto.setPass(request.getParameter("pass"));
 
         try {
 
-            if (bindingResult.hasErrors()) {
-                return "/login";
-            }
 
-            if (!authService.authenticate(userDto.getUsername(), userDto.getPass())) {
+            if (!authService.authenticate("ruiferao", "1234")) {
                 throw new UsernameNotAvailable(Errors.USER_NOT_FOUND);
             }
 
-            return "index";
+            return "userpage";
 
         } catch (UsernameNotAvailable ex) {
 
             redirectAttributes.addFlashAttribute("message", ex.getMessage());
-            return "/login";
+            return "login";
         }
     }
 }
