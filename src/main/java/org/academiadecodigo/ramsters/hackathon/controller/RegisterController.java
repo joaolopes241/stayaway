@@ -3,7 +3,8 @@ package org.academiadecodigo.ramsters.hackathon.controller;
 import org.academiadecodigo.ramsters.hackathon.command.UserDto;
 import org.academiadecodigo.ramsters.hackathon.converters.UserDtoToUser;
 import org.academiadecodigo.ramsters.hackathon.exceptions.StayAwayException;
-import org.academiadecodigo.ramsters.hackathon.messages.Messages;
+import org.academiadecodigo.ramsters.hackathon.exceptions.UsernameNotAvailable;
+import org.academiadecodigo.ramsters.hackathon.errors.Errors;
 import org.academiadecodigo.ramsters.hackathon.persistence.model.User;
 import org.academiadecodigo.ramsters.hackathon.services.RegisterService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,15 +34,15 @@ public class RegisterController {
     }
 
     @RequestMapping(method = RequestMethod.POST, path = {"register/", "register"}, params = "action=save")
-    public String saveCustomer(@Valid @ModelAttribute("customer") UserDto userDto, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+    public String saveCustomer(@Valid @ModelAttribute("customer") UserDto userDto, BindingResult bindingResult, RedirectAttributes redirectAttributes) throws StayAwayException {
 
         try {
             if (bindingResult.hasErrors()) {
-                return new StayAwayException();
+                return "/register";
             }
 
             if (registerService.checkAvailability(userDto.getUsername())) {
-                return new StayAwayException(Messages.USEREXISTS);
+                throw new UsernameNotAvailable(Errors.USERNAME_NOT_AVAILABLE);
             }
 
             User savedCustomer = registerService.save(userDtoToUser.convert(userDto));
@@ -49,7 +50,7 @@ public class RegisterController {
             redirectAttributes.addFlashAttribute("lastAction", "Saved " + savedCustomer.getFirstName() + " " + savedCustomer.getLastName());
             return "redirect:/register/" + savedCustomer.getFirstName() + savedCustomer.getLastName();
 
-        } catch (StayAwayException ex) {
+        } catch (UsernameNotAvailable ex) {
 
             redirectAttributes.addFlashAttribute("message", ex.getMessage());
             return "/register";
