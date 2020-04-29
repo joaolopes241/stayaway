@@ -27,13 +27,13 @@ public class LoginController {
         this.authService = authService;
     }
 
-    @RequestMapping(method = RequestMethod.GET, path = "/login")
+    /*@RequestMapping(method = RequestMethod.GET, path = "/login")
     public String login() {
         return "/login";
-    }
+    }*/
 
     @RequestMapping(method = RequestMethod.POST, path = "/login")
-    public String login(@RequestParam("login") String username, @RequestParam("pass") String pass, RedirectAttributes redirectAttributes) throws StayAwayException {
+    public String login(@RequestParam("username") String username, @RequestParam("password") String pass, RedirectAttributes redirectAttributes) throws StayAwayException {
 
         try {
 
@@ -41,12 +41,12 @@ public class LoginController {
                 throw new UsernameNotAvailable(Errors.USER_NOT_FOUND);
             }
 
-            return "userpage";
+            return "homepage";
 
         } catch (UsernameNotAvailable ex) {
 
-            redirectAttributes.addFlashAttribute("message", ex.getMessage());
-            return "login";
+            redirectAttributes.addFlashAttribute("login-fail", ex.getMessage());
+            return "homepage";
         }
     }
 }

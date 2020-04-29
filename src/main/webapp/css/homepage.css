@@ -155,7 +155,7 @@ span.psw {
 }
 
 #background-main {
-  background-image: url(/resources/background.jpg);
+  background-image: url(/hackathon/resources/background.jpg);
   background-size: 100%;
   background-attachment: fixed;
 }

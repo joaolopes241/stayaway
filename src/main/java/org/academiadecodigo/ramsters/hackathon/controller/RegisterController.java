@@ -34,12 +34,9 @@ public class RegisterController {
     }
 
     @RequestMapping(method = RequestMethod.POST, path = {"register/", "register"}, params = "action=save")
-    public String saveCustomer(@Valid @ModelAttribute("customer") UserDto userDto, BindingResult bindingResult, RedirectAttributes redirectAttributes) throws StayAwayException {
+    public String saveCustomer(@ModelAttribute("customer") UserDto userDto, RedirectAttributes redirectAttributes) throws StayAwayException {
 
         try {
-            if (bindingResult.hasErrors()) {
-                return "/register";
-            }
 
             if (registerService.checkAvailability(userDto.getUsername())) {
                 throw new UsernameNotAvailable(Errors.USERNAME_NOT_AVAILABLE);
