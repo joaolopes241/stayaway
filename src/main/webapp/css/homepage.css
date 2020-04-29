@@ -160,7 +160,7 @@ span.psw {
 }
 
 #background-main {
-  background-image: url(/hackathon/resources/background.jpg);
+  background-image: url(/resources/background.jpg);
   background-size: 100%;
   background-attachment: fixed;
 }
@@ -196,17 +196,17 @@ span.psw {
 }
 
 #btn-outline-success {
-  background-image: url(/hackathon/resources/logo_green.png);
+  background-image: url(/resources/logo_green.png);
   background-size: cover;
 }
 
 #btn-outline-warning {
-  background-image: url(/hackathon/resources/logo_yellow.png);
+  background-image: url(/resources/logo_yellow.png);
   background-size: cover;
 }
 
-#btn-outline-danger {
-  background-image: url(/hackathon/resources/logored.png);
+.btn-outline-danger {
+  background-image: url(/resources/logored.png);
   background-size: cover;
 }
 
