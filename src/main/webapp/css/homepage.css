@@ -160,7 +160,8 @@ span.psw {
 }
 
 #background-main {
-  background-size: 100%;
+  width: 100%;
+  height: 100vh;
   background: url(/resources/background.jpg) no-repeat fixed;
 }
 
