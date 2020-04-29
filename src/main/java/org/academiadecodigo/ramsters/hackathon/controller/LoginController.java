@@ -27,11 +27,6 @@ public class LoginController {
         this.authService = authService;
     }
 
-    /*@RequestMapping(method = RequestMethod.GET, path = "/login")
-    public String login() {
-        return "/login";
-    }*/
-
     @RequestMapping(method = RequestMethod.POST, path = "/login")
     public String login(@RequestParam("username") String username, @RequestParam("password") String pass, RedirectAttributes redirectAttributes) throws StayAwayException {
 

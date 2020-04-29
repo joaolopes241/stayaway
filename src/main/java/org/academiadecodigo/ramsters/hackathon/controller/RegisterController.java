@@ -13,6 +13,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
@@ -33,8 +34,22 @@ public class RegisterController {
         this.userDtoToUser = userDtoToUser;
     }
 
-    @RequestMapping(method = RequestMethod.POST, path = {"register/", "register"}, params = "action=save")
-    public String saveCustomer(@ModelAttribute("customer") UserDto userDto, RedirectAttributes redirectAttributes) throws StayAwayException {
+    @RequestMapping(method = RequestMethod.POST, path = {"/register"})
+    public String saveCustomer(@RequestParam("username") String username,
+                               @RequestParam("password") String password,
+                               @RequestParam("firstName") String firstName,
+                               @RequestParam("lastName") String lastName,
+                               @RequestParam("email") String email,
+                               @RequestParam("phone") String phone,
+                               RedirectAttributes redirectAttributes) throws StayAwayException {
+
+        UserDto userDto = new UserDto();
+        userDto.setUsername(username);
+        userDto.setPass(password);
+        userDto.setFirstName(firstName);
+        userDto.setLastName(lastName);
+        userDto.setEmail(email);
+        userDto.setPhone(phone);
 
         try {
 
@@ -45,12 +60,12 @@ public class RegisterController {
             User savedCustomer = registerService.save(userDtoToUser.convert(userDto));
 
             redirectAttributes.addFlashAttribute("lastAction", "Saved " + savedCustomer.getFirstName() + " " + savedCustomer.getLastName());
-            return "redirect:/register/" + savedCustomer.getFirstName() + savedCustomer.getLastName();
+            return "homepage";
 
         } catch (UsernameNotAvailable ex) {
 
             redirectAttributes.addFlashAttribute("message", ex.getMessage());
-            return "/register";
+            return "homepage";
 
         }
 

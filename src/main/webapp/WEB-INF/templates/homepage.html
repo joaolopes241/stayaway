@@ -41,7 +41,7 @@
                 Register</button>
               <div id="id00" class="modal">
 
-                <form class="modal-content animate" action="/action_page.php" method="post">
+                <form class="modal-content animate" action="register" method="post">
                   <div class="imgcontainer">
                     <span onclick="document.getElementById('id00').style.display='none'" class="close"
                       title="Close Modal">&times;</span>
@@ -52,22 +52,25 @@
                   </div>
                   <div class="container">
 
+                    <label for="username"><b>Username</b></label>
+                    <input type="text" placeholder="Enter Username" name="username" required>
+
+                    <label for="password"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="password" required>
+
+                    <label for="firstName"><b>First Name</b></label>
+                    <input id="firstName" type="text" placeholder="First Name" name="firstName" required>
+
+                    <label for="lastName"><b>Last Name</b></label>
+                    <input id="lastName" type="text" placeholder="Last Name" name="lastName" required>
+
                     <label for="email"><b>Email</b></label>
-                    <input type="text" placeholder="Enter Email" name="email" required>
-
-                    <label for="uname"><b>Username</b></label>
-                    <input type="text" placeholder="Enter Username" name="uname" required>
-
-                    <label for="psw"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="psw" required>
-
-                    <label for="psw-repeat"><b>Repeat Password</b></label>
-                    <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+                    <input id="email" type="text" placeholder="Enter Email" name="email" required>
 
                     <label for="phone"><b>Phone</b></label>
-                    <input type="text" placeholder="Phone" name="phone" required>
+                    <input id="phone" type="text" placeholder="Phone" name="phone" required>
 
-                    <button class="btn-login-register" type="submit">Register</button>
+                    <button class="btn-login-register" type="submit" value="register">Register</button>
                   </div>
 
                   <div class="container" style="background-color:#f1f1f1">
