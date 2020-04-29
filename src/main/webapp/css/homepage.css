@@ -23,6 +23,11 @@ button:hover {
   opacity: 0.8;
 }
 
+#btn-feedback {
+  height: 15px;
+  width: 15px;
+}
+
 /* Extra styles for the cancel button */
 .cancelbtn {
   background-color: rgb(228, 33, 65);
@@ -182,3 +187,30 @@ span.psw {
   cursor: pointer;
   width: 100%;
 }
+
+.btn-group button.btn {
+  width: 30px;
+  height: 30px;
+  padding-right: 15px;
+  box-sizing: border-box;
+}
+
+#btn-outline-success {
+  background-image: url(/hackathon/resources/logo_green.png);
+  background-size: cover;
+}
+
+#btn-outline-warning {
+  background-image: url(/hackathon/resources/logo_yellow.png);
+  background-size: cover;
+}
+
+#btn-outline-danger {
+  background-image: url(/hackathon/resources/logored.png);
+  background-size: cover;
+}
+
+.card-text {
+  color: black;
+}
+
