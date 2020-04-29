@@ -1,9 +1,7 @@
 package org.academiadecodigo.ramsters.hackathon.persistence.model;
 
-import org.graalvm.compiler.core.common.type.ArithmeticOpTable;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "beach")
