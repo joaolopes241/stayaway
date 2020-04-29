@@ -8,11 +8,6 @@ public class MainController {
 
     @RequestMapping("/")
     public String home() {
-        return "index";
-    }
-
-    @RequestMapping("/beach")
-    public String beach() {
-        return "favorites";
+        return "homepage";
     }
 }
